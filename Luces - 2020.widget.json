@@ -1,0 +1,35 @@
+{
+    "template": "<style>\n.icon-tile.colorize {\n  filter: invert(45%) sepia(100%) hue-rotate(15deg) saturate(1700%);\n-webkit-filter: invert(45%) sepia(100%) hue-rotate(15deg) saturate(1700%);\n}\n.hue-controller-table {\n  width: 100%;\n  border-spacing: 8px;\n  border: 2px solid #76899e; \n  border-radius: 10px;  \n  width: auto;\n  height: auto;\n} \n\n.title{\n\tcolor: #ffaa00; \n}\n\n#dimmer-slider .rz-bubble {\n  color: #FFAA00;\n}\n#dimmer-slider .rz-pointer {\n  background-color: #FFAA00;\n}\n#dimmer-slider .rzslider .rz-bar.rz-selection {\n  background-color: #FFAA00;\n}\n\n.hue-select {\n  padding-right: 10px;\n}\n  \n@media (min-width: 631px) and (max-width: 1100px) {\n  \n     .gridster-loaded .gridster-item {\n        display: inline-table!important;\n        position: relative!important;\n        height: unset!important;\n        left: unset!important;\n        top: unset!important;\n        border: 0px!important;\n    }\n\t\t.bulb {\n  \t\tfont-size: 14px;\n  \t}\n\t\th3{font-size: 14px;} \t\n  \t.title {margin-top: -10px!important;}\n\n\n}\n@media (min-width: 1100px) and (max-width: 1920px) {\n\n\t\th3{font-size: 20px;} \t\n\n}\n\n</style>\n<div class=\"container-fluid\">\n  <div class=\"row hue-controller-table\">\n    <div class=\"col-xs-12 col-sm-12 col-md-12\">\n\n        <h3 class=\"title\">{{config.title}}</h3>\n\n    </div>\n    <div class=\"col-xs-4 col-sm-4 col-md-4\">\n      <div class=\"bulb\" ng-init='onoff={\"name\": \"OnOff\", \"item\": config.light, \"hidelabel\": true, \"hideonoff\": false, \"iconset\": \"smarthome-set\",\"icon\": \"bulb\", \"icon-size\": \"60px\" }'>\n        <widget-switch   ng-model=\"onoff\" />\n      </div>\n    </div>\n    <div class=\"col-xs-8 col-sm-8 col-md-8\">\n\t\t\t<div class=\"slider-div\" ng-init='dimmerModel={\"name\": \"dimmer\", \"item\": config.dimmer, \n                          \"floor\" : 0, \"ceil\": 100, \"step\": 1,\n                          \"hidelabel\" : \"true\", \"hidelimits\": \"false\" }'>\n        <widget-slider ng-model=\"dimmerModel\" id=\"dimmer-slider\"/>\n      </div>\n    </div>\n  </div>\n</div>",
+    "settings": [
+        {
+            "type": "string",
+            "id": "title",
+            "label": "Title",
+            "default": "Light",
+            "description": "Title to display at top of widget"
+        },
+        {
+            "type": "checkbox",
+            "id": "showTitle",
+            "label": "Show Title",
+            "default": true,
+            "description": "Show or hide title"
+        },
+        {
+            "type": "item",
+            "id": "light",
+            "label": "Light",
+            "description": "Item for light"
+        },
+        {
+            "type": "item",
+            "id": "dimmer",
+            "label": "Dimmer",
+            "description": "Dimmer item for light"
+        }
+    ],
+    "name": "Luces - AMADIP",
+    "author": "Miquel Angel Aloy Vich",
+    "description": "Control básico de luces, encender, apagar y regular intensidad",
+    "readme_url": "https://community.openhab.org/t/23304"
+}
